@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мотивационные цитаты</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    const words = [
+      'верь',
+      'в',
+      'себя',
+      'и',
+      'невозможное',
+      'станет',
+      'частью',
+      'твоей',
+      'реальности',
+      'Верь в себя — и невозможное станет частью твоей реальности.'
+    ];
+
+    const app = document.getElementById('app');
+
+    words.forEach((word, index) => {
+      const screen = document.createElement('div');
+      screen.classList.add('screen');
+      if (index === 0) screen.classList.add('active');
+      screen.id = `screen-${index}`;
+
+      const text = document.createElement('h1');
+      text.innerText = word;
+
+      const btn = document.createElement('button');
+      btn.classList.add('btn');
+      btn.innerText = index === words.length - 1 ? 'Начать заново' : 'Далее';
+
+      btn.onclick = () => {
+        document.getElementById(`screen-${index}`).classList.remove('active');
+        const nextIndex = index === words.length - 1 ? 0 : index + 1;
+        document.getElementById(`screen-${nextIndex}`).classList.add('active');
+      };
+
+      screen.appendChild(text);
+      screen.appendChild(btn);
+      app.appendChild(screen);
+    });
+  </script>
+</body>
+</html>
