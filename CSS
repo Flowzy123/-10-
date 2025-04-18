@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .screen {
+    display: none;
+    text-align: center;
+  }
+  .screen.active {
+    display: block;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideFadeIn 0.25s ease forwards;
+  }
+  
+  .btn {
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #222;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-fill-color: #222;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
+  
+  .btn:hover {
+    transform: scale(1.08);
+    box-shadow: none;
+    color: #222;
+    -webkit-text-fill-color: #222;
+  }
+  
+  .btn:focus,
+  .btn:active {
+    outline: none;
+    transform: scale(1.08);
+    box-shadow: none;
+    color: #222;
+    -webkit-text-fill-color: #222;
+  }
+  
+  @keyframes slideFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  
